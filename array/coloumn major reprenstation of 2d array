@@ -1,0 +1,7 @@
+A[m][n]
+m=no of rows
+n=no of coloumns
+
+Add(A[i][j])=Lo+[j*m+i]*w
+
+m is no of rows

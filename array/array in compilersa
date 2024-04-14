@@ -1,0 +1,7 @@
+address at compile time for array
+address =206
+Add(A[i])=Lo+(i)*w;
+Lo is base address 
+i is index which we want to search 
+w is size of data type used
+

@@ -1,0 +1,4 @@
+Add(A[i][j])=Lo+[i*n+j]*w
+
+w is size of data type
+n is no of coloumn 
