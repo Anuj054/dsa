@@ -37,7 +37,6 @@ void Swap(int *x,int *y){
     *y=temp;
 
 }
-
 int LinearSearch(struct Array *arr,int Key){
     int i;
     for(i=0;i<arr->length;i++){
@@ -76,8 +75,8 @@ int RBinarySearch(int a[],int l,int h,int key){
         return RBinarySearch( a,l,mid-1,key);
         else 
         return RBinarySearch(a,mid+1,h,key);
-    };
-
+    }
+return 0; 
 }
 int Get(struct Array arr,int index)
 {
@@ -139,8 +138,46 @@ void reverse2(struct Array *arr){
     swap(arr->A[i],arr->A[j]);
 }
 
+void InsertSort (struct Array *arr,int x){
+
+    int i=arr->length-1;
+    if(arr->length==arr->size)
+    return;
+    while( i>=0 && arr->A[i]>x)
+    {
+        arr->A[i+1]=arr->A[i];
+        i--;
+    }
+    arr->A[i+1]=x;
+    arr->length++;
+
+
+};
+int isSort(struct Array arr){
+    int i;
+    for(i=0;i<arr.length-1;i++){
+        if(arr.A[i]>arr.A[i+1])
+return 1;
+    }
+
+    return 1;
+}
+void rearrange(struct Array *arr){
+int i,j;
+i=0;
+j=arr->length-1;
+while(i<j){
+    while(arr->A[i]<0)i++;
+    while(arr->A[j]>=0)j--;
+    if(i<j)Swap(&arr->A[i],&arr->A[j]);
+}
+
+}
+
+
+
 int main(){
-    struct Array arr={{2,3,14,5,6},10,5};
+    struct Array arr={{2,-3,5,10,-15},10,5};
 //    Insert(&arr,5,10);//for inserting element
 // cout<<LinearSearch(&arr,5)<<endl;//linear searching
 
@@ -148,8 +185,11 @@ int main(){
 // cout<<RBinarySearch(arr.A,0,arr.length,5)<<endl;// recursive binary seacrh
 // cout<<Get(arr,2)<<endl;//get
 // Set(&arr,4,5);//set
-reverse2(&arr);
+//reverse2(&arr);//reverese array
+//cout<<max(arr);maximum element
+//InsertSort(&arr,12);//insert element in sorted way
+//cout<<isSort(arr)<<endl; //check if array is sorted
+rearrange(&arr);
 Display(arr);//display array
-//cout<<max(arr);
 
 };
