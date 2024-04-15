@@ -76,16 +76,80 @@ int RBinarySearch(int a[],int l,int h,int key){
         return RBinarySearch( a,l,mid-1,key);
         else 
         return RBinarySearch(a,mid+1,h,key);
+    };
+
+}
+int Get(struct Array arr,int index)
+{
+    if(index>=0 &&index<arr.length )
+    return arr.A[index];
+    return -1;
+}
+void Set(struct Array *arr,int index,int x){
+    if(index >=0 && index<= arr->length)
+    arr->A[index]=x;
+
+}
+int max(struct Array arr){
+    int max=arr.A[0];
+    int i;
+    for(i=0;i<arr.length ;i++){
+        if(arr.A[i]>max)
+        max=arr.A[i];
+    }
+    return max;
+}
+int min(struct Array arr){
+    int min=arr.A[0];
+    int i;
+    for(i=0;i<arr.length ;i++){
+        if(arr.A[i]<min)
+        min=arr.A[i];
+    }
+    return min;
+}
+int Sum(struct Array arr)
+{
+int s=0,i;
+for(i=0;i<=arr.length;i++){
+    s+=arr.A[i];
+}
+    return s;
+};
+float Avg(struct Array arr)
+{
+    return (float) Sum(arr)/arr.length;
+}
+void reverse(struct Array *arr){
+    int *B;
+    int i,j;
+    B=(int *)malloc(arr->length*sizeof(int));
+    for(i=arr->length-1,j=0;i>=0;i--,j++){
+        B[j]=arr->A[i];
+    }
+    for(i=0;i<=arr->length;i++){
+        arr->A[i]=B[i];
     }
 
-};
-int main(){
-    struct Array arr={{2,3,4,5,6},10,5};
-   //Insert(&arr,5,10);
-cout<<LinearSearch(&arr,5)<<endl;
-Display(arr);
-cout<<BinarySearch(arr,5) <<endl;
-cout<<RBinarySearch(arr.A,0,arr.length,5)<<endl;
 
+}
+void reverse2(struct Array *arr){
+    int i,j;
+    for(i=0,j=arr->length-1;i<j;i++,j--)
+    swap(arr->A[i],arr->A[j]);
+}
+
+int main(){
+    struct Array arr={{2,3,14,5,6},10,5};
+//    Insert(&arr,5,10);//for inserting element
+// cout<<LinearSearch(&arr,5)<<endl;//linear searching
+
+// cout<<BinarySearch(arr,5) <<endl;//binary searching
+// cout<<RBinarySearch(arr.A,0,arr.length,5)<<endl;// recursive binary seacrh
+// cout<<Get(arr,2)<<endl;//get
+// Set(&arr,4,5);//set
+reverse2(&arr);
+Display(arr);//display array
+//cout<<max(arr);
 
 };
